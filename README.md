@@ -51,4 +51,4 @@ Weiterführende Links:
 * [Get started with Keycloak on Docker](https://www.keycloak.org/getting-started/getting-started-docker)
 * [Keycloak Dokumentation](https://www.keycloak.org/documentation)
 
-Auf jeden Fall solltet ihr die [Events](https://www.keycloak.org/docs/latest/server_admin/index.html#auditing-and-events) um Probleme debuggen zu können. Um Keycloak zu testen, könnt ihr den Test-Client verwenden, den findet ihr auf [Github](https://github.com/lizzyTheLizard/sp-test)
+Auf jeden Fall solltet ihr die [Events](https://www.keycloak.org/docs/latest/server_admin/index.html#auditing-and-events) einschalten, um Probleme debuggen zu können. Um Keycloak zu testen, könnt ihr den Test-Client verwenden, den findet ihr auf [Github](https://github.com/lizzyTheLizard/sp-test)
