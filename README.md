@@ -5,8 +5,8 @@
 ## Docker installieren
 Docker existiert für MacOS, Windows und Linux. Auf Windows oder Mac können die vorgefertigten Pakete ("Docker Desktop") verwendet werden. Unter Linux kann Docker mit den System-Tools installiert werden.
 * [Install Docker Desktop on Mac](https://docs.docker.com/desktop/mac/install/)
-* [Install Docker Desktop on Windows] (https://docs.docker.com/desktop/windows/install/)
-* [Install Docker Engine on Ubuntu] (https://docs.docker.com/engine/install/ubuntu/)
+* [Install Docker Desktop on Windows](https://docs.docker.com/desktop/windows/install/)
+* [Install Docker Engine on Ubuntu](https://docs.docker.com/engine/install/ubuntu/)
 
 Unter Linux kann Docker noch für den aktuellen Benutzer freigeschalten werden, sodass kein "sudo" mehr notwendig ist: [Post-installation steps for Linux](https://docs.docker.com/engine/install/linux-postinstall/)
 
