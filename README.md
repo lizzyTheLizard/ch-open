@@ -43,5 +43,7 @@ docker run \
 	 jboss/keycloak
 ```
 
+Keycloak kann dann unter [http://localhost:8080](http://localhost:8080) erreicht werden.
+
 
 
