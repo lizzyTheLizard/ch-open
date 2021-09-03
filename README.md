@@ -46,4 +46,7 @@ docker run \
 Keycloak kann dann unter [http://localhost:8080](http://localhost:8080) erreicht werden.
 
 
-
+Weiterführende Links:
+* [Keycloak-Image auf Docker Hub](https://hub.docker.com/r/jboss/keycloak/)
+* [Get started with Keycloak on Docker](https://www.keycloak.org/getting-started/getting-started-docker)
+* [Keycloak Dokumentation](https://www.keycloak.org/documentation)
