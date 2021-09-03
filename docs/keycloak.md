@@ -24,7 +24,7 @@ Auf jeden Fall solltet ihr die [Events](https://www.keycloak.org/docs/latest/ser
 Um Keycloak zu testen, könnt ihr den Test-Client den  ihr auf [Github](https://github.com/lizzyTheLizard/sp-test) findet verwenden. Dazu müsst ihr folgendes tun:
 * In Keycloak einen neuen Realm anlegen (z.B. Test-Applikation)
 * In diesem Realm einen Benutzer erstellen
-* In diesem Realm einen Client erstellen (Name sp-test)
+* In diesem Realm einen Client erstellen (Name sp-test) und die URL von sp-test als erlaubte Redirect-URI (http://localhost:3001/consumer.html) und Origin (http://localhost:3001) hinzufügen
 * sp-test auschecken und mittels ```npm install && export PORT=3001 && npm start``` starten. Ihr könnte dann unter [localhost:3001/oidc](http://localhost:3001/oidc) einen OIDC-Flow starten
 * Gebt dort folgende Werte ein:
 * * Authentication Code-Flow
