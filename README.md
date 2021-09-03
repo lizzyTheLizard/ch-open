@@ -50,3 +50,6 @@ Weiterführende Links:
 * [Keycloak-Image auf Docker Hub](https://hub.docker.com/r/jboss/keycloak/)
 * [Get started with Keycloak on Docker](https://www.keycloak.org/getting-started/getting-started-docker)
 * [Keycloak Dokumentation](https://www.keycloak.org/documentation)
+
+
+Um Keycloak zu testen, könnt ihr den Test-Client verwenden, den findet ihr unter [https://github.com/lizzyTheLizard/sp-test]
