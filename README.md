@@ -52,4 +52,4 @@ Weiterführende Links:
 * [Keycloak Dokumentation](https://www.keycloak.org/documentation)
 
 
-Um Keycloak zu testen, könnt ihr den Test-Client verwenden, den findet ihr unter [https://github.com/lizzyTheLizard/sp-test]
+Um Keycloak zu testen, könnt ihr den Test-Client verwenden, den findet ihr auf [Github](https://github.com/lizzyTheLizard/sp-test)
