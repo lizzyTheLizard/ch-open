@@ -28,7 +28,7 @@ Falls ihr eine andere Frontend-Technologie verwendet => Kein Problem. Ihr müsst
 Falls ihr eine andere Backend-Technologie verwendet => Kein Problem. Ihr müsst aber in der Lage sein ein Rest-API zu erstellen und zu verändern. Falls ihr noch keine oder nur wenig Erfahrung habt, würde ich euch Java und Sprint Boot empfehlen.
 
 * Dazu müsst ihr zuerst Java installieren, z.B. mittels [AdoptOpenJDK](https://adoptopenjdk.net/). Ihr solltet mindenstens Java 11 installiert haben. Unter Linux könnt ihr OpenJDK über die Packet-Quellen installieren z.B. für [Ubuntu](https://wiki.ubuntuusers.de/Java/Installation/OpenJDK/)
-* Als IDE kann auch VS-Code verwendet werden, besser geeignet ist aber IntelliJ. Ihr könnt die Open Source Community Edition für Windows oder MacOS (heruterladen)[https://www.jetbrains.com/de-de/idea/download/]. Unter Linux könnt ihr IntelliJ z.B. als [Standalone](https://www.jetbrains.com/help/idea/installation-guide.html#standalone) installieren
+* Als IDE kann auch VS-Code verwendet werden, besser geeignet ist aber IntelliJ. Ihr könnt die Open Source Community Edition für Windows oder MacOS [herunterladen](https://www.jetbrains.com/de-de/idea/download/). Unter Linux könnt ihr IntelliJ z.B. als [Standalone](https://www.jetbrains.com/help/idea/installation-guide.html#standalone) installieren
 
 
 # Installieren und Aufsetzten von Keycloak
