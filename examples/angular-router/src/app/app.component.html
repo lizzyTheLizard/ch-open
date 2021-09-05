@@ -1,0 +1,20 @@
+<mat-toolbar color="primary">
+  <span>{{ title }}</span>
+  <a mat-button [routerLink]="['/']">
+    <span>Home</span>
+  </a>
+    <a mat-button [routerLink]="['/page2']">
+      <span>Page 2</span>
+    </a>
+    <a mat-button [routerLink]="['/admin']" *ngIf="isAdmin">
+    <span  class="label">Admin</span>
+  </a>
+  <span class="example-spacer"></span>
+  <a mat-button *ngIf="!isLoggedIn" (click)="login()">
+    <span  class="label">Login</span>
+  </a>
+  <a mat-button *ngIf="isLoggedIn" (click)="logout()">
+    <span class="label">Logout {{user}}</span>
+  </a>
+</mat-toolbar>
+<router-outlet></router-outlet>
