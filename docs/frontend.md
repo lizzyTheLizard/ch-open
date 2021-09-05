@@ -3,10 +3,9 @@
 ## Erstellen einer Angular Applikation
 
 Eine neue Angular-Applikation kann einfach mit dem Angular CLI erstellt werden ([Angular Tutorial](https://angular.io/tutorial/toh-pt0)). Dazu sind die folgenden Schritte notwendig:
-* Der Befehl ```ng new --defaults authentication-frontend``` erstellt eine neue Applikation mit dem Namen "authentication-frontend" in einem Ordner mit dem Namen.
-* Der Angular
+* Der Befehl ```ng new --defaults authentication-frontend``` erstellt eine neue Applikation mit dem Namen "authentication-frontend" in einem Ordner mit demselben Namen.
 * Der Befehl ```ng serve --open``` in diesem neuen Ordner startet die Applikation sowie einen Browser der unter [localhost:4200](http://localhost:4200) auf die Applikation zugreift.
-* Dieser Ordner kann auch direkt im VSCode geöffnet und bearbeitet werden, Änderungen werden direkt übernommen.
+* Der Ordner kann auch direkt im VSCode geöffnet und bearbeitet werden, Änderungen werden direkt übernommen.
 * Die zum Start angezeigte Seite kann befindet sich unter 'src/app/app.component.html', der dazugehörige JS-Code befindet sich unter 'src/app/app.component.ts'
 
 ## Anbinden OIDC (Basis)
@@ -19,16 +18,18 @@ Es existiert auch eine [Anleitung](https://github.com/manfredsteyer/angular-oaut
 
 * In der Datei 'src/app/app.module.ts' müssen die Module und HttpClientModule und OAuthModule importiert werden
 * In der Datei 'app.component.ts' muss angular-oauth2-oidc konfiguriert werden. Danach kann mittels tryLogin() geprüft werden, ob ein dies ein Redirect-Aufruf ist und ob dieser erfolgreich war. In dem Fall können die Claims des aktuellen Benutzers geladen werden.
-*  In der Datei 'app.component.html' muss ein Login-Button angelegt werden. Wenn er aufgerufen wird, muss in 'app.component.ts' die Funtion initLogin ausgeführt werden.
+*  In der Datei 'app.component.html' muss ein Login-Button angelegt werden. Wenn er aufgerufen wird, muss in 'app.component.ts' die Funktion initLoginFlow ausgeführt werden.
 
 Die Applikation kann nun geladen werden, mittels Login-Button kann ein Benutzer ein Login starten, wenn er eingeloggt ist kann z.B. der Benutzername angezeigt werden.
 
 ## Anbinden OIDC (Erweiterungen)
 
 Diese Implementierung kann in verschiedener Hinsicht erweitert werden:
-* Hinzufügen eines "Silent-Refresh"
-* Hinzufügen eines "Auto-Logins"
-* "Silent-Auto-Login"
+* Hinzufügen eines "Silent-Refresh", siehe auch [Dokumentation](https://github.com/manfredsteyer/angular-oauth2-oidc/blob/master/docs-src/silent-refresh.md)
+* Prüfen des Login-Status beim initialen laden mittels "prompt: none"
+* Erkennen einer beendeten Session mittels [Events](https://github.com/manfredsteyer/angular-oauth2-oidc/blob/master/docs-src/events.md) und [Session-Checks](https://github.com/manfredsteyer/angular-oauth2-oidc/blob/master/docs-src/session-checks.md)
+* Erkennen ob der Benutzer bereits eingeloggt ist bei startem (Auto-Login)
+* Einbinden Angular Routing
 
 ## Aufrufen eines Rest-Backends
 
