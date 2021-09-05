@@ -20,10 +20,10 @@ Damit ein Login möglich ist, muss in Keycloak ein neuer Realm (z.B. Test-Applik
 
 Danach kann sp-test unter [localhost:3001/oidc](http://localhost:3001/oidc) aufegrufen werden. Dort müssen folgende Einstellungen getroffen werden:
 * Authentication Code-Flow
-* Auth-Endpunkt http://localhost:8080/auth/realms/Test-Applikation/protocol/oidc/auth
+* Auth-Endpunkt http://localhost:8080/auth/realms/Test-Applikation/protocol/openid-connect/auth
 * ClientId "sp-test"
 
-Keycloak sollte euch nun nach Benutzername und Passwort fragen. Nach dem erfolgreichen Login muss als Token-Endpunkt http://localhost:8080/auth/realms/Test-Applikation/protocol/oidc/token angeben werden und ihr erhaltet ein Access- und ID-Token
+Keycloak sollte euch nun nach Benutzername und Passwort fragen. Nach dem erfolgreichen Login muss als Token-Endpunkt http://localhost:8080/auth/realms/Test-Applikation/protocol/openid-connect/token angeben werden und ihr erhaltet ein Access- und ID-Token
 
 
 Um einen Implicit-Flow zu testen, müsste ihr dies für den Client in Keycloak freischalten. Danach könnt ihr in sp-test "Implicit-Flow" auswählen und erhaltet direkt einen ID-Token. Um Client-Credentials zu testen, muss ein zweiter Client mit z.B. dem Namen sp-test-cc angelegt werden. Dieser muss auf "confidential" gesetzt werden und der "Service-Account" muss aktiviert werden. Dann könnt ihr das Client-Secret aus dem Tab "Credentials" kopieren und ein Client-Credential-Flow unter [localhost:3001/clientCredentials](http://localhost:3001/clientCredentials) starten
