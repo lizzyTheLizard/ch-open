@@ -33,4 +33,4 @@ Diese Implementierung kann in verschiedener Hinsicht erweitert werden:
 
 ## Aufrufen eines Rest-Backends
 
-TODO
+Der Access-Token muss für Requests an das Backend mitgeschickt werden, darf aber nicht an andere Services geschickt werden. In angular-oauth2-oidc kann dies konfiguriert werden, siehe [Anleitung](https://github.com/manfredsteyer/angular-oauth2-oidc#calling-a-web-api-with-an-access-token)
