@@ -1,0 +1,11 @@
+<div>
+  <div *ngIf="claims; else loginButton">
+      <pre>
+{{claims | json}}
+      </pre>
+  </div>
+    
+  <ng-template #loginButton>
+      <button (click)="login()">Login</button>
+  </ng-template>
+</div>

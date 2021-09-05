@@ -17,15 +17,15 @@ Um einem Login zu triggern muss [angular-oauth2-oidc](https://www.npmjs.com/pack
 
 Es existiert auch eine [Anleitung](https://github.com/manfredsteyer/angular-oauth2-oidc#installing) wie angular-oauth2-oidc in eine eigene Angular-Applikation eigebunden werden kann. Grundsätzlich sind die folgenden Schritte notwendig:
 
-* In der Datei 'src/app/app.module.ts' muss angular-oauth2-oidc geladen werden
-  * Import
-  * Configure
-  * Check if Login-Request
-* Im der Komponente app.component muss ein Login-Button eingebaut werden der den Login startet resp. die User-Informationen anzeigt.
+* In der Datei 'src/app/app.module.ts' müssen die Module und HttpClientModule und OAuthModule importiert werden
+* In der Datei 'app.component.ts' muss angular-oauth2-oidc konfiguriert werden. Danach kann mittels tryLogin() geprüft werden, ob ein dies ein Redirect-Aufruf ist und ob dieser erfolgreich war. In dem Fall können die Claims des aktuellen Benutzers geladen werden.
+*  In der Datei 'app.component.html' muss ein Login-Button angelegt werden. Wenn er aufgerufen wird, muss in 'app.component.ts' die Funtion initLogin ausgeführt werden.
+
+Die Applikation kann nun geladen werden, mittels Login-Button kann ein Benutzer ein Login starten, wenn er eingeloggt ist kann z.B. der Benutzername angezeigt werden.
 
 ## Anbinden OIDC (Erweiterungen)
 
-Diese Implementierung kann in verschiedener hinsicht erweitert werden:
+Diese Implementierung kann in verschiedener Hinsicht erweitert werden:
 * Hinzufügen eines "Silent-Refresh"
 * Hinzufügen eines "Auto-Logins"
 * "Silent-Auto-Login"
