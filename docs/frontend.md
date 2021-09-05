@@ -34,3 +34,11 @@ Diese Implementierung kann in verschiedener Hinsicht erweitert werden:
 ## Aufrufen eines Rest-Backends
 
 Der Access-Token muss für Requests an das Backend mitgeschickt werden, darf aber nicht an andere Services geschickt werden. In angular-oauth2-oidc kann dies konfiguriert werden, siehe [Anleitung](https://github.com/manfredsteyer/angular-oauth2-oidc#calling-a-web-api-with-an-access-token)
+
+## Andere Technologien
+
+Für (fast) alle anderen Technologie-Stacks stehen OIDC-Libraries zur Verfügung, z.B.:
+* [Vuex-oidc](https://www.npmjs.com/package/vuex-oidc) für Vue.JS
+* [oidc-react](https://www.npmjs.com/package/oidc-react) für React.JS
+* AppAuth für [Android](https://github.com/openid/AppAuth-Android) und [iOS](https://github.com/openid/AppAuth-iOS)
+* Keycloak bietet auch direkt Adapter für verschiedene Technologien [Keycloak#supported-platforms](https://www.keycloak.org/docs/4.8/securing_apps/#supported-platforms)
