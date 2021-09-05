@@ -1,16 +1,16 @@
 # Installieren und Aufsetzten von Keycloak
 
-Keycloak kann einfach gestartet werden mittels
+Wenn Docker installiert ist, kann Keycloak kann einfach gestartet werden mittels
 
 ```
 docker run \
 	-p 8080:8080 \
-	-e KEYCLOAK_USER=<USERNAME> \
-	-e KEYCLOAK_PASSWORD=<PASSWORD>\
+	-e KEYCLOAK_USER=admin \
+	-e KEYCLOAK_PASSWORD=admin\
 	 jboss/keycloak
 ```
 
-Keycloak kann dann unter [http://localhost:8080](http://localhost:8080) erreicht werden.
+Keycloak ist dann unter [http://localhost:8080](http://localhost:8080) erreicht werden. In die 
 
 
 Weiterführende Links:
