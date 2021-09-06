@@ -16,7 +16,6 @@ Sobald der ungesicherte Rest-Service erreicht werden kann, kann er durch Spring-
 * Hinzufügen der Dependencies ```spring-security-oauth2-resource-server``` und ```spring-security-oauth2-jose``` 
 * Konfigurieren des Authentisierungsserver ```spring.security.oauth2.resourceserver.jwt.issuer-uri=http://localhost:8080/realms/Test-Applikation/```
 * Konfigurieren von CORS damit wir den Request vom Frontend ausführen können (siehe [Anleitung](https://docs.spring.io/spring-security/site/docs/5.2.x/reference/html/integrations.html#cors))
-* 
 
 Zusätzlich kann noch das Log-Level erhöht werden, sodass allfällige Fehlermeldungen geloggt werden: ```logging.level.org.springframework.security=DEBUG```
 
