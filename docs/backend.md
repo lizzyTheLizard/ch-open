@@ -5,23 +5,28 @@ Eine neue Spring-Boot-Applikation kann einfach mit dem [Spring Initializr](https
 
 ```./mvnw spring-boot:run -Drun.jvmArguments='-Dserver.port=8088'```
 
-Die erzeugte Spring Applikation beinhaltet noch keine Rest-Controller, als erstes sollte einer erzeugt werden (siehe [Anleitung](https://spring.io/guides/gs/rest-service/)).
+Die erzeugte Spring Applikation beinhaltet noch keine Logik. Zum testen sollte als ersten ein Rest-Controller erzeugt werden (siehe [Anleitung](https://spring.io/guides/gs/rest-service/)).
 
 ## Einbinden und Konfigurieren von Spring Security
 
-Achtung: Vor Spring Security 5.2 gab es ein extra Projekt (Spring Security OAuth) für die Unterstütztung von OAuth/OIDC in Spring. Dieses Projekt ist aber deprecated und wird nicht mehr weiterentwickelt. Es finden sich im Web aber noch oft Anleitungen dazu.
+Achtung: Vor Spring Security 5.2 gab es ein extra Projekt (Spring Security OAuth) für die Unterstütztung von OAuth/OIDC in Spring. Dieses Projekt ist aber deprecated, wird nicht mehr weiterentwickelt und sollte nicht mehr verwendet werden. Es finden sich im Web aber noch oft Anleitungen dazu.
 
-Sobald der ungesicherte Rest-Service erreicht werden kann, kann er durch Spring-Security angesichert werden. Dazu sind die folgenden Schritte notwendig (siehe [Anleitung](https://docs.spring.io/spring-security/site/docs/5.2.12.RELEASE/reference/html/oauth2.html#oauth2resourceserver))
+Sobald der ungesicherte Rest-Service erreicht werden kann, kann er durch Spring-Security angesichert werden. Dazu sind die folgenden Schritte notwendig (siehe [Anleitung](https://docs.spring.io/spring-security/site/docs/5.2.x/reference/html/oauth2.html#oauth2resourceserver))
 
 * Hinzufügen der Dependencies ```spring-security-oauth2-resource-server``` und ```spring-security-oauth2-jose``` 
 * Konfigurieren des Authentisierungsserver ```spring.security.oauth2.resourceserver.jwt.issuer-uri=http://localhost:8080/realms/Test-Applikation/```
+* Konfigurieren von CORS damit wir den Request vom Frontend ausführen können (siehe [Anleitung](https://docs.spring.io/spring-security/site/docs/5.2.x/reference/html/integrations.html#cors))
+* 
 
 Zusätzlich kann noch das Log-Level erhöht werden, sodass allfällige Fehlermeldungen geloggt werden: ```logging.level.org.springframework.security=DEBUG```
 
-
 ## Rollen in Spring Security
 
-## Erweiterungen
+https://docs.spring.io/spring-security/site/docs/5.2.x/reference/html/oauth2.html#oauth2resourceserver-jwt-authorization-extraction
+
+## Aufrufen von gesicherten Backends
+
+https://docs.spring.io/spring-security/site/docs/5.2.x/reference/html/oauth2.html#bearer-token-propagation
 
 ## Andere Technologien
 Für (fast) alle anderen Technologie-Stacks stehen OIDC-Libraries zur Verfügung, z.B.:
