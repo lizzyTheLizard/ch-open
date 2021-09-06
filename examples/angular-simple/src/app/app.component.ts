@@ -17,7 +17,7 @@ export class AppComponent {
     this.oauthService.configure({
       issuer: 'http://localhost:8080/auth/realms/Test-Applikation',
       redirectUri: window.location.origin,
-      clientId: 'sp-test',
+      clientId: 'angular-test',
       responseType: 'code',
       scope: 'openid profile email',
       useSilentRefresh: true,
