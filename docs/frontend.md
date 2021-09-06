@@ -26,10 +26,10 @@ Die Applikation kann nun geladen werden, mittels Login-Button kann ein Benutzer 
 
 Diese Implementierung kann in verschiedener Hinsicht erweitert werden:
 * Hinzufügen eines "Silent-Refresh", siehe auch [Dokumentation](https://github.com/manfredsteyer/angular-oauth2-oidc/blob/master/docs-src/silent-refresh.md)
-* Prüfen des Login-Status beim initialen Laden mittels "prompt: none"
+* Manuelles durchführen eines "Silent-Refresh" beim laden
 * Erkennen einer beendeten Session mittels [Events](https://github.com/manfredsteyer/angular-oauth2-oidc/blob/master/docs-src/events.md) und [Session-Checks](https://github.com/manfredsteyer/angular-oauth2-oidc/blob/master/docs-src/session-checks.md)
-* Erkennen ob der Benutzer bereits eingeloggt ist bei starten (Auto-Login)
-* Einbinden Angular Routing
+* Forcieren des Logins beim Laden ("AutoLogin")
+* Einbinden [Guards](https://angular.io/api/router/CanActivate) ins Angular Routing
 
 ## Aufrufen eines Rest-Backends
 
