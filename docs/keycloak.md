@@ -1,4 +1,5 @@
-# Installieren und Aufsetzten von Keycloak
+# Keycloak
+## Installieren und Aufsetzten von Keycloak
 
 Wenn Docker installiert ist, kann Keycloak einfach gestartet werden mittels
 
@@ -12,7 +13,7 @@ docker run \
 
 Keycloak kann dann unter [http://localhost:8080](http://localhost:8080) erreicht werden und mit dem Benutzer "admin/admin" kann die Administrations-Konsole aufgerufen werden.
 
-# Testen mit sp-Test
+## Testen mit sp-Test
 
 Um Keycloak zu testen, könnt ihr den Test-Client [sp-test](https://github.com/lizzyTheLizard/sp-test) verwenden. Damit können verschiedene Login-Arten getestet und durchgespielt werden. sp-test könnt ihr auschecken und mittels ```npm install && export PORT=3001 && npm start``` starten. 
 
@@ -25,13 +26,18 @@ Danach kann sp-test unter [localhost:3001/oidc](http://localhost:3001/oidc) aufe
 
 Keycloak sollte euch nun nach Benutzername und Passwort fragen. Nach dem erfolgreichen Login muss als Token-Endpunkt http://localhost:8080/auth/realms/Test-Applikation/protocol/openid-connect/token angeben werden und ihr erhaltet ein Access- und ID-Token
 
-
 Um einen Implicit-Flow zu testen, müsste ihr dies für den Client in Keycloak freischalten. Danach könnt ihr in sp-test "Implicit-Flow" auswählen und erhaltet direkt einen ID-Token. Um Client-Credentials zu testen, muss ein zweiter Client mit z.B. dem Namen sp-test-cc angelegt werden. Dieser muss auf "confidential" gesetzt werden und der "Service-Account" muss aktiviert werden. Dann könnt ihr das Client-Secret aus dem Tab "Credentials" kopieren und ein Client-Credential-Flow unter [localhost:3001/clientCredentials](http://localhost:3001/clientCredentials) starten
 
 Auf jeden Fall solltet ihr die [Events](https://www.keycloak.org/docs/latest/server_admin/index.html#auditing-and-events) in Keycloak einschalten, um Probleme debuggen zu können. 
 
+## Weitere Themen
 
+Sobald Keycloak basismässig aufgesetzt ist können folgende Themen angegangen werden, z.B.: 
 
-# Weiterführende Links:
+* Anbinden von Social IDPs: [Anleitung](https://www.keycloak.org/docs/latest/server_admin/index.html#social-identity-providers)
+* Erstellen eigener Themes: [Anleitung](https://www.keycloak.org/docs/latest/server_development/index.html#_themes)
+* Erstellen von Keycloak-Plugins: [Anleitung](https://www.keycloak.org/docs/latest/server_development/index.html#_extensions)
+
+## Weiterführende Links:
 * [Keycloak Dokumentation](https://www.keycloak.org/documentation)
 * [Get started with Keycloak on Docker](https://www.keycloak.org/getting-started/getting-started-docker)
