@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { TokenConsumerComponent } from './views/token-consumer/token-consumer.component';
 import { MainComponent } from './views/main/main.component';
 import { AdminComponent } from './views/admin/admin.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -16,7 +15,6 @@ import { Page2Component } from './views/page2/page2.component';
 @NgModule({
   declarations: [
     AppComponent,
-    TokenConsumerComponent,
     MainComponent,
     AdminComponent,
     Page2Component,
@@ -28,7 +26,12 @@ import { Page2Component } from './views/page2/page2.component';
     MatButtonModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    OAuthModule.forRoot()
+    OAuthModule.forRoot({
+      resourceServer: {
+        allowedUrls: ['http://localhost:8090'],
+        sendAccessToken: true
+      }
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

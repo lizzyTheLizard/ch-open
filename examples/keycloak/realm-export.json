@@ -636,7 +636,7 @@
       "alwaysDisplayInConsole": false,
       "clientAuthenticatorType": "client-secret",
       "redirectUris": [
-        "http://localhost:4200/silent-refresh.html",
+        "http://localhost:4200/assets/silent-refresh.html",
         "http://localhost:4200/",
         "http://localhost:4200"
       ],
