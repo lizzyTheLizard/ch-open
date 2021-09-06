@@ -1,43 +1,41 @@
 package com.example.spring.backend;
 
 
-import lombok.extern.log4j.Log4j;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Bean;
-import org.springframework.security.authentication.AbstractAuthenticationToken;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.oauth2.jwt.Jwt;
+import org.springframework.security.oauth2.client.registration.ClientRegistrationRepository;
+import org.springframework.security.oauth2.client.web.OAuth2AuthorizedClientRepository;
+import org.springframework.security.oauth2.client.web.reactive.function.client.ServletOAuth2AuthorizedClientExchangeFilterFunction;
 import org.springframework.security.oauth2.server.resource.authentication.JwtAuthenticationConverter;
+import org.springframework.security.oauth2.server.resource.web.reactive.function.client.ServletBearerExchangeFilterFunction;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
-import org.springframework.core.convert.converter.Converter;
+import org.springframework.web.reactive.function.client.WebClient;
 
 import java.util.Arrays;
-import java.util.Collection;
-import java.util.Map;
-import java.util.stream.Collectors;
 
 @EnableWebSecurity
-@EnableGlobalMethodSecurity(prePostEnabled=true)
+@EnableGlobalMethodSecurity(prePostEnabled = true)
 @Slf4j
 public class SpringSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+        JwtAuthenticationConverter jwtAuthenticationConverter = new JwtAuthenticationConverter();
+        jwtAuthenticationConverter.setJwtGrantedAuthoritiesConverter(new GrantedAuthoritiesExtractor());
+
         http.cors();
         http.authorizeRequests().anyRequest().authenticated();
-        http.oauth2ResourceServer().jwt().jwtAuthenticationConverter(grantedAuthoritiesExtractor());
+        http.oauth2ResourceServer().jwt().jwtAuthenticationConverter(jwtAuthenticationConverter);
     }
 
     @Bean
     CorsConfigurationSource corsConfigurationSource() {
-        System.out.println("This is a test");
         CorsConfiguration configuration = new CorsConfiguration();
         configuration.setAllowedOrigins(Arrays.asList("http://localhost:4200"));
         configuration.setAllowedMethods(Arrays.asList("GET", "POST"));
@@ -47,22 +45,24 @@ public class SpringSecurityConfiguration extends WebSecurityConfigurerAdapter {
         return source;
     }
 
-    Converter<Jwt, AbstractAuthenticationToken> grantedAuthoritiesExtractor() {
-        JwtAuthenticationConverter jwtAuthenticationConverter = new JwtAuthenticationConverter();
-        jwtAuthenticationConverter.setJwtGrantedAuthoritiesConverter(new GrantedAuthoritiesExtractor());
-        jwtAuthenticationConverter.setPrincipalClaimName("name");
-        return jwtAuthenticationConverter;
+    @Bean
+    public WebClient forwardTokenClient() {
+        return WebClient.builder()
+                .filter(new ServletBearerExchangeFilterFunction())
+                .build();
     }
 
-    static class GrantedAuthoritiesExtractor
-            implements Converter<Jwt, Collection<GrantedAuthority>> {
-        public Collection<GrantedAuthority> convert(Jwt jwt) {
-            log.info(jwt.toString());
-            Collection<String> authorities = (Collection<String>) ((Map<String, Object>) jwt.getClaims().get("realm_access")).get("roles");
-            log.info(String.join(",", authorities));
-            return authorities.stream()
-                    .map(SimpleGrantedAuthority::new)
-                    .collect(Collectors.toList());
-        }
+    @Bean
+    WebClient clientCredentialClient(ClientRegistrationRepository clientRegistrationRepository,
+                                     OAuth2AuthorizedClientRepository authorizedClientRepository) {
+        ServletOAuth2AuthorizedClientExchangeFilterFunction oauth2Client =
+                new ServletOAuth2AuthorizedClientExchangeFilterFunction(
+                        clientRegistrationRepository,
+                        authorizedClientRepository);
+        oauth2Client.setDefaultClientRegistrationId("keycloak");
+
+        return WebClient.builder()
+                .apply(oauth2Client.oauth2Configuration())
+                .build();
     }
 }

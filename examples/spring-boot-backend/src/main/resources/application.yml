@@ -1,0 +1,13 @@
+spring.security.oauth2:
+  resourceserver:
+    jwt.issuer-uri: http://localhost:8080/auth/realms/Test-Applikation
+  client:
+    registration.keycloak:
+      client-id: spring-backend
+      client-secret: a32bf9e9-d168-429c-a6f7-2671e598a6ef
+      authorization-grant-type: client_credentials
+    provider.keycloak:
+      issuer-uri: http://localhost:8080/auth/realms/Test-Applikation
+
+logging.level:
+  org.springframework.security: INFO
