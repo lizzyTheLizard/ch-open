@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
 import { OAuthService } from 'angular-oauth2-oidc';
 
 @Component({
@@ -6,11 +7,12 @@ import { OAuthService } from 'angular-oauth2-oidc';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'angular-simple';
   claims : object | undefined;
 
-  constructor(private oauthService: OAuthService) { }
+  constructor(private oauthService: OAuthService, 
+    private http: HttpClient) { }
 
   ngOnInit() {
     //Configure auth service
@@ -39,4 +41,13 @@ export class AppComponent {
     this.oauthService.initLoginFlow();
   }
 
+  async makeRequest(){
+    //Those request do not return someting meaningfull, its just to check if the token is send to the backend
+    await this.http.get("http://localhost:4200/api/withToken")
+      .toPromise()
+      .catch(err => undefined);
+    await this.http.get("http://localhost:4200/noToken")
+      .toPromise()
+      .catch(err => undefined);
+  }
 }
