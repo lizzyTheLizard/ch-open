@@ -21,11 +21,18 @@ Zusätzlich kann noch das Log-Level erhöht werden, sodass allfällige Fehlermel
 
 ## Rollen in Spring Security
 
-https://docs.spring.io/spring-security/site/docs/5.2.x/reference/html/oauth2.html#oauth2resourceserver-jwt-authorization-extraction
+In Spring Security können einfach Rechteüberprüfungen mittels Rollen durchgeführt werden, z.B. mittels ```@PreAuthorize("hasAuthority('roles')")``` (siehe auch [Spring Security Dokumentation](https://docs.spring.io/spring-security/site/docs/5.2.x/reference/html/authorization.html#el-access)). Da in OIDC kein Standard vorgiebt wie Rollen übertragen werden sollen muss ein eigener ```GrantedAuthoritiesExtractor ``` erstelle werden, siehe [Spring Security Dokumentation](https://docs.spring.io/spring-security/site/docs/5.2.x/reference/html/oauth2.html#oauth2resourceserver-jwt-authorization-extraction).
 
 ## Aufrufen von gesicherten Backends
 
-https://docs.spring.io/spring-security/site/docs/5.2.x/reference/html/oauth2.html#bearer-token-propagation
+Wenn ein Microservice ein anders Backend aufrufen will, muss es ebenfalls einen Token mitschicken. Dazu gibt es 2 Möglichkeiten:
+
+* Den erhaltenen Token weiterschicken ("Token-Propagation"). Dies kann einfach in den WebClient integriert werden, siehe [Spring Security Dokumentation](https://docs.spring.io/spring-security/site/docs/5.2.x/reference/html/oauth2.html#bearer-token-propagation)
+* Mittels Client-Credentials einen eigenen Token bekommen und diesen mitschicken, siehe [Spring Security Dokumentation](https://docs.spring.io/spring-security/site/docs/5.2.x/reference/html/oauth2.html#oauth2Client-client-creds-grant)
+
+Am einfachsten kann dies getestet werden, indem ein Request auf den Server selbst durchgeführt wird, so muss kein zweites Backend erstellt werden.
+
+Achtung: Das RestTeamplate wird von Spring nicht mehr weiterentwickelt (siehe [RestTemplate Javadoc](https://docs.spring.io/spring-framework/docs/current/javadoc-api/index.html?org/springframework/web/client/RestTemplate.html)) und sollte in Zukunft nicht mehr verwendet werden. Statdessen kann auch im MVC-Stack der [WebClient](https://www.baeldung.com/spring-5-webclient) verwendet werden. Dazu muss aber der ```spring-boot-starter-webflux``` importiert werden.
 
 ## Andere Technologien
 Für (fast) alle anderen Technologie-Stacks stehen OIDC-Libraries zur Verfügung, z.B.:
