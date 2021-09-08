@@ -37,11 +37,13 @@ Auf jeden Fall solltet ihr die [Events](https://www.keycloak.org/docs/latest/ser
 
 ## Weitere Themen
 
-Sobald Keycloak basismässig aufgesetzt ist können folgende Themen angegangen werden, z.B.: 
+Sobald Keycloak funktioniert, kann die Konfiguration erweitert werden z.B. durch:
 
-* Anbinden von Social IDPs: [Anleitung](https://www.keycloak.org/docs/latest/server_admin/index.html#social-identity-providers)
-* Erstellen eigener Themes: [Anleitung](https://www.keycloak.org/docs/latest/server_development/index.html#_themes)
-* Erstellen von Keycloak-Plugins: [Anleitung](https://www.keycloak.org/docs/latest/server_development/index.html#_extensions)
+* Konfigurieren von eigenen [Realm](https://www.keycloak.org/docs/latest/server_admin/#realm-roles)- und [Client](https://www.keycloak.org/docs/latest/server_admin/#client-roles)-Roles
+* Konfigurieren von [Token-Mapper](https://www.keycloak.org/docs/latest/server_admin/#_protocol-mappers) und eigenen [Client-Scopes](https://www.keycloak.org/docs/latest/server_admin/#_client_scopes)
+* Anbinden eines [Social IDPs](https://www.keycloak.org/docs/latest/server_admin/index.html#social-identity-providers)
+* Erstellen eines eigene [Themes](https://www.keycloak.org/docs/latest/server_development/index.html#_themes)
+* Erstellen von [Keycloak-Plugins](https://www.keycloak.org/docs/latest/server_development/index.html#_extensions)
 
 ## Weiterführende Links:
 * [Keycloak Dokumentation](https://www.keycloak.org/documentation)
